@@ -5,12 +5,14 @@ root = tk.Tk()
 root.title("YouTube Video Downloader")
 root.geometry("600x300")
 
+PATH = "" #enter the path for downloading the video
+
 yt_link = tk.StringVar()
 yt_res = tk.StringVar()
 
 def yt_download():
     video = YouTube(yt_link.get()).streams.filter(res=yt_res.get()).first()
-    video.download("/home/hareesh/Downloads/")
+    video.download(PATH)
 
 tk.Label(root, text="Enter the Link:").pack()
 tk.Entry(root, textvariable = yt_link).pack()
